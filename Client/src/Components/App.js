@@ -1,10 +1,11 @@
 import styled from "styled-components"
 
 
-
-
-
-
+import HomePage from "./HomePage";
+import Profile from "./Profile";
+import WishList from "./WishList";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 
 

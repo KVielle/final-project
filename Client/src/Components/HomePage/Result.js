@@ -1,18 +1,20 @@
-import { styled } from "styled-components";
+// import { styled } from "styled-components";
 
 
 
-const Result = () => {
+// const Result = async () => {
 
-    return (
-        <Wrapper>
 
-        </Wrapper>
-    )
-}
 
-const Wrapper = styled.div`
+//     return (
+//         <Wrapper>
 
-`
+//         </Wrapper>
+//     )
+// }
 
-export default Result;
+// const Wrapper = styled.div`
+
+// `
+
+// export default Result;

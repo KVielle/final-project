@@ -1,3 +1,6 @@
+const {GetAllMovies} = require("./Handlers/GetAllMovies")
+const {GetGenres} = require("./Handlers/GetGenres")
+
 const express = require("express");
 
 const PORT = 8000;
@@ -12,6 +15,9 @@ app.use(express.static("public"));
 
 
 // ENDPOINTS HERE
+app.get("/movies", GetAllMovies)
+app.get("/genres", GetGenres)
+
 
 
 app.get("*", (request, response) => {

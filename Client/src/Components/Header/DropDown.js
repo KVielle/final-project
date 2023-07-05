@@ -1,11 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { UserContext } from "../UserContext";
+import SignOut from "../SignOut"
+
 
 
 const DropDown = () => {
 
+    const { setName, setCurrentUser } = useContext(UserContext);
     const [open, setOpen] = useState(false)
     let menuRef = useRef()
     useEffect(() => {
@@ -23,18 +27,51 @@ const DropDown = () => {
         }
     });
 
-    return (
-        <Wrapper>
-            <Container ref = {menuRef}>
-                <Trigger onClick = {() => {setOpen(!open)}}>
-                    <GiHamburgerMenu size={35}/>
-                </Trigger>
+
+    const handleSignOut = () => {
+        setName(null);
+        setCurrentUser(null);
+        };
+
+
+    const MenuRender = () => {
+        
+        const { name, currentUser } = useContext(UserContext);
+
+        if (name && currentUser ) {
+        
+            return (
+                
+                <Menu className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            <ul>
+                <Item to="/profile">Profile</Item>
+                <Item>
+                    <SignOut handleSignOut = {handleSignOut} />
+                </Item>
+            </ul>
+                </Menu>
+            )
+        } else {
+
+            return (
                 <Menu className = {`dropdown-menu ${open ? 'active' : 'inactive'}`}>
                     <ul>
                         <Item to = "/signup">Sign up!</Item>
                         <Item to = "/signin">Sign in</Item>
                     </ul>
                 </Menu>
+            )
+        }
+    }
+
+
+    return (
+        <Wrapper>
+            <Container ref = {menuRef}>
+                <Trigger onClick = {() => {setOpen(!open)}}>
+                    <GiHamburgerMenu size={35}/>
+                </Trigger>
+                {MenuRender()}
             </Container>
         </Wrapper>
     )

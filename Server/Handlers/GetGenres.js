@@ -15,7 +15,9 @@ const GetGenres = async (request, response) => {
 
     fetch(url, options)
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json => {
+        response.status(200).json({ status: 200, data: json})
+        })
         .catch(err => console.error('error:' + err));
 }
 

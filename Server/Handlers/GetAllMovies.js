@@ -6,7 +6,7 @@ const { API_KEY } = process.env;
 const GetAllMovies = async (request, response) => {
 
 
-    const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&watch_region=canada&with_watch_providers=netflix';
+    const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&watch_region=canada&with_watch_providers=true';
     const options = {
         method: 'GET',
         headers: {

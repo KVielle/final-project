@@ -1,5 +1,7 @@
 const {GetAllMovies} = require("./Handlers/GetAllMovies")
 const {GetGenres} = require("./Handlers/GetGenres")
+const {SignUp} = require("./Handlers/SignUp")
+const {SignIn} = require("./Handlers/SignIn")
 
 const express = require("express");
 
@@ -17,8 +19,8 @@ app.use(express.static("public"));
 // ENDPOINTS HERE
 app.get("/movies", GetAllMovies)
 app.get("/genres", GetGenres)
-
-
+app.post("/signup", SignUp)
+app.post("/signin", SignIn)
 
 app.get("*", (request, response) => {
     return response

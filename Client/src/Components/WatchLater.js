@@ -203,13 +203,13 @@ const OverView = styled.div`
         width: 2.5em;
     }
     @media(max-width: 1075px){
-        border: none;
+        /* border: none; */
         padding: none;
         border-radius: none;
         box-shadow:none;
-        div{
+        /* div{
             display: none;
-        }
+        } */
     }
 `
 const Details = styled.div`

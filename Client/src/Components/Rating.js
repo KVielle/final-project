@@ -86,7 +86,10 @@ const Wrapper = styled.div`
     border-radius: 20px;
     box-shadow:1px 2px 18px 9px #000000;
     @media(max-width: 1200px){
-      
+        border: none;
+        padding: none;
+        border-radius: none;
+        box-shadow:none;
     }
 `;
 

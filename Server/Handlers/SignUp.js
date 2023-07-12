@@ -1,6 +1,7 @@
 "use strict";
 //this is the latest version
 const { MongoClient } = require("mongodb");
+const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
 
 require("dotenv").config();
@@ -22,11 +23,14 @@ const SignUp = async (request, response) => {
     const { email, password, firstName } =
     request.body;
 
+
     if (
         !email ||
         !firstName ||
         !password 
         
+
+
     ) {
     return response.status(400).json({
         status: 400,
@@ -34,6 +38,7 @@ const SignUp = async (request, response) => {
             email: email || "Missing email",
             password: password || "Missing password",
             firstName: firstName || "Missing first name",
+
         },
     });
     }
@@ -65,13 +70,12 @@ const SignUp = async (request, response) => {
         .status(400)
         .json({ status: 400, message: "Bad request", data: authData });
 
-
-    // generating unique ID
-    let Id = uuidv4();
-    let isDuplicate = await db.collection("users").findOne({ Id: Id });
+    // generating unique userID
+    let userId = uuidv4();
+    let isDuplicate = await db.collection("users").findOne({ userId: userId });
     while (isDuplicate) {
-        Id = uuidv4();
-        isDuplicate = await db.collection("users").findOne({ Id: Id });
+        userId = uuidv4();
+        isDuplicate = await db.collection("users").findOne({ userId: userId });
     }
 
     //checking if user object already exist
@@ -88,7 +92,11 @@ const SignUp = async (request, response) => {
         _id: email.toLowerCase(),
         email: email.toLowerCase(),
         firstName: firstName,
-        Id: Id
+        userId: userId
+
+
+
+
     };
 
     //creating a new user
@@ -97,6 +105,13 @@ const SignUp = async (request, response) => {
         response
         .status(400)
         .json({ status: 400, message: "Bad request", data: userData });
+
+    const UserData = { _id: userId, listItems: [] };
+    const resultAddId = await db.collection("watchLater").insertOne(UserData);
+    !resultAddId &&
+        response
+            .status(400)
+            .json({ status: 400, message: "Bad request", data: UserData });
 
     response
         .status(201)

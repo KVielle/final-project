@@ -42,15 +42,15 @@ const SignIn = () => {
             window.alert("Signed in Succesfully!");
             window.localStorage.setItem(
             "user",
-            JSON.stringify(parse.data.cartId)
+            JSON.stringify(parse.data.userId)
             );
             window.localStorage.setItem(
             "name",
             JSON.stringify(parse.data.firstName)
             );
             setName(parse.data.firstName);
-            setCurrentUser(parse.data.cartId);
-            navigate("/");
+            setCurrentUser(parse.data.userId);
+            navigate("/home");
         } else if (parse.status === 404){
             window.alert(JSON.stringify(parse.data));
         }
@@ -90,7 +90,7 @@ const SignIn = () => {
                                 />
                         </FormGroup>
                     </Flex>
-                    <Signup to="/signup">Already have an account? Sign in now!</Signup>
+                    <Signup to="/signup">Don't have an account? <span>Sign up now!</span></Signup>
                     <Button type="submit">Sign In</Button>
                 </SignInForm>
         </Box>
@@ -110,13 +110,22 @@ const Box = styled.div`
     justify-content: center;
     font-size: 1.5em;
     color: white;
-    margin-top: 45%;
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    width: 20em;
+    box-shadow:1px 2px 18px 9px #000000;
+    @media(max-width: 768px){
+        width: 15em;
+    }
 `
 const SignInForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-top: 1em;
+    padding-bottom: 1em;
     div {
     margin-bottom: 0.6em;
     }
@@ -135,6 +144,10 @@ const Label = styled.label`
 `
 const Input = styled.input`
     margin-left: 1em;
+    height: 1.5em;
+    border-radius: 15px;
+    border:none;
+    box-shadow: 1px 2px 25px 2px #000000;
 `
 const FormGroup = styled.div`
 
@@ -143,8 +156,33 @@ const Signup = styled(NavLink)`
     color: white;
     margin-bottom: 1em;
     font-size: 0.8em;
+    text-decoration: none;
+    span{
+        text-decoration: underline;
+        font-size: 1.2em;
+    }
 `
 const Button = styled.button`
-
+    background-color: #fff;
+    justify-content: center;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 1.2em;
+    
+    color:red;
+    box-shadow: 5px 5px 21px 5px #000000;
+    border: 0;
+    box-sizing: border-box;
+    width: 5em;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    /* margin-top: 1em; */
+    outline: none;
+    padding: 1rem 1.2rem;
+    transition-duration: 200ms;
+    &:hover{
+        transform: scale(1.2);
+        transition-duration: 200ms;
+    }
 `
 export default SignIn;

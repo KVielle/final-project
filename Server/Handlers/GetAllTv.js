@@ -3,14 +3,15 @@ require("dotenv").config();
 const { API_KEY } = process.env;
 
 
-const GetAllMovies = async (request, response) => {
+const GetAllTv = async (request, response) => {
 
     const { genreId } = request.params;
 
     let moviesArray = []
 
     for(let i = 0; i < 30; i++) {
-        const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${i+1}${genreId ? `&with_genres=${genreId}` : ""}`
+        const url = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${i+1}${genreId ? `&with_genres=${genreId}` : ""}`;
+
 const options = {
         method: 'GET',
         headers: {
@@ -35,4 +36,4 @@ const options = {
 };
 
 
-module.exports = { GetAllMovies }
+module.exports = { GetAllTv }

@@ -44,7 +44,7 @@ const SignIn = async (request, response) => {
         .status(404)
         .json({ status: 404, data: "User does not exist" });
     }
-    const { firstName, _id } = await db
+    const { firstName, _id, userId } = await db
         .collection("users")
         .findOne({ _id: email });
 
@@ -52,6 +52,7 @@ const SignIn = async (request, response) => {
     const modifiedUserObject = {
         email: _id,
         firstName,
+        userId,
     };
 
     const verified = await bcrypt.compare(password, resultGetOne.password);

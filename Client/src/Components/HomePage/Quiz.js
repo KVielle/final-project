@@ -1,19 +1,21 @@
 import styled from "styled-components"
 import { useState, useEffect, useRef } from "react";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 
 
-const Quiz = () => {
+const Quiz = ({ selectedGenre, setSelectedGenre}) => {
 
     const [open, setOpen] = useState(false)
+    const [rotate, setRotate] = useState("");;
+
+
     let menuRef = useRef()
     useEffect(() => {
         let handler = (event) => {
             if(!menuRef.current.contains(event.target)){
                 setOpen(false);
             }
-            
         };
 
         document.addEventListener("mousedown", handler)
@@ -23,42 +25,55 @@ const Quiz = () => {
         }
     });
 
+    const [genresList, setGenresList] = useState([])
+    const [genrePick, setGenrePick] = useState("")
 
-    fetch(`/genres`)
+    useEffect(() => {
+        const fetchGenres = async () => {
+            try {
+                const response = await fetch("/genres");
+                const parsed = await response.json();
+                setGenresList(parsed.data.genres);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchGenres();
+    }, []);
 
+    const handleItemClick = (genreId) => {
+        const selectedGenre = genresList.find((genre) => genre.id === genreId)?.name;
+        const genrePick = genresList.find((genre) => genre.id === genreId)?.name;
+        setSelectedGenre(selectedGenre);
+        setGenrePick(genrePick)
+        setOpen(false);
+    };
 
-
-
+    const handleTriggerClick = () => {
+        setOpen(!open);
+        setRotate(!rotate);
+    };
     return (
         <Wrapper>
             <Form>
                 <Flex>
                     <Group ref = {menuRef}>
                         <Label>What genre do you like?</Label>
-                        <Trigger onClick = {() => {setOpen(!open)}}>
-                            <AiOutlineArrowDown size= {30}/>
+                        <Selected>{genrePick}</Selected>
+                        <Trigger onClick={handleTriggerClick} rotate={rotate}>
+                            <AiOutlineArrowRight size= {30}/>
                         </Trigger>
                         <Menu className = {`dropdown-menu ${open ? 'active' : 'inactive'}`}>
-                            <Item>yo</Item>
-                            <Item>yo</Item>
-                            <Item>yo</Item>
-                            <Item>sup</Item>
-                            <Item>yo</Item>
-                            <Item>yo</Item>
-                            <Item>yo</Item>
-                            <Item>yo</Item>
+                        {genresList.length > 1 &&
+                        genresList.map((genre) => (
+                            <Item key={genre.id} onClick={() => handleItemClick(genre.id)}>
+                                {genre.name}
+                            </Item>
+                        ))}
                         </Menu>
                     </Group>
                     <Group2>
-                        <Label>How long do you have?</Label>
-                        <Label2>
-                        <Input
-                            type = "checkbox"
-                        />Time for a movie</Label2>
-                        <Label2>
-                        <Input
-                            type = "checkbox"
-                        />Time for a show</Label2>
+                            What do you want to see?
                     </Group2>
                 </Flex>
             </Form>
@@ -68,6 +83,7 @@ const Quiz = () => {
 
 const Wrapper = styled.div`
     width: 100vw;
+    
     font-family: 'League Gothic', sans-serif;
 `
 const Form = styled.form`
@@ -81,13 +97,6 @@ const Flex = styled.div`
 const Label = styled.label`
     text-align: center;
 `
-const Label2 = styled.label`
-    text-align: center;
-    font-size: 0.8em;
-`
-const Input = styled.input`
-    margin-top: 0.5em;
-`
 const Group = styled.div`
     display: flex;
     flex-direction: column;
@@ -98,24 +107,22 @@ const Trigger = styled.div`
     color: white;
     cursor: pointer;
     margin-top: 0.5em;
-    transition: transform 0.3s; /* Added transition property */
-    
+    transition: transform 0.3s;
+    transform: rotate(${({ rotate }) => (rotate ? '90deg' : '0deg')});
 `
 const Menu = styled.div`
     position: absolute;
-    top: 6em;
+    top: 7em;
     background-color: #78000a;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-radius: 25px;
     text-align: center;
-    width: 99vw;
+    width: 540px;
     z-index: 10;
     transition: 500ms;
     ul{
         display:flex;
         flex-direction: column;
         height: 15em;
-        
     }
     &:active {
         opacity: 1;
@@ -126,15 +133,27 @@ const Menu = styled.div`
         visibility: hidden;
         transition: 500ms;
     }
+    @media(max-width: 768px){
+        width: 98vw;
+    }
 `
 const Item = styled.div`
-
+    margin-bottom: 0.1em;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-left: 2em;
+    margin-right: 2em;
+    cursor: pointer;
+`
+const Selected = styled.div`
+    color: white;
+    margin-top: 0.2em;
+    border-bottom: solid white 1px;
+    
 `
 const Group2 = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 0.5em;
-    align-items: left;
+    margin-top: 1em;
+    align-items: center;
 `
-
 export default Quiz;

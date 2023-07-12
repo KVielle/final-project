@@ -84,7 +84,7 @@ const SignUp = () => {
                             />
                         </FormGroup>
                     </Flex>
-                    <SignIn to="/signin">Already have an account? Sign in now!</SignIn>
+                    <SignIn to="/">Already have an account? <span>Sign in now!</span></SignIn>
                     <Button type="submit">Sign up!</Button>
                 </SignUpForm>
             </Box>
@@ -92,9 +92,9 @@ const SignUp = () => {
     );
 }
 const Wrapper = styled.div`
-    background-color: #4d0208;
     height: 100vh;
     font-family: 'League Gothic', sans-serif;
+    background-color: #4d0208;
 `
 const Box = styled.div`
     display: flex;
@@ -102,13 +102,24 @@ const Box = styled.div`
     justify-content: center;
     font-size: 1.5em;
     color: white;
-    margin-top: 45%;
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    background-color: #4d0208;
+    width: 20em;
+    box-shadow:1px 2px 18px 9px #000000;
+    @media(max-width: 768px){
+        width: 15em;
+    }
 `
 const SignUpForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 1em;
+    padding-bottom: 1em;
     div {
     margin-bottom: 0.6em;
     }
@@ -127,6 +138,10 @@ const Label = styled.label`
 `
 const Input = styled.input`
     margin-left: 1em;
+    height: 1.5em;
+    border-radius: 15px;
+    border:none;
+    box-shadow: 1px 2px 25px 2px #000000;
 `
 const FormGroup = styled.div`
 
@@ -135,8 +150,32 @@ const SignIn = styled(NavLink)`
     color: white;
     margin-bottom: 1em;
     font-size: 0.8em;
+    text-decoration: none;
+    span{
+        text-decoration: underline;
+        font-size: 1.2em;
+    }
 `
 const Button = styled.button`
-
+    background-color: #fff;
+    justify-content: center;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 1.2em;
+    
+    color:red;
+    box-shadow: 5px 5px 21px 5px #000000;
+    border: 0;
+    box-sizing: border-box;
+    width: 5em;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    /* margin-top: 1em; */
+    outline: none;
+    padding: 1rem 1.2rem;
+    &:hover{
+        transform: scale(1.2);
+        transition-duration: 200ms;
+    }
 `
 export default SignUp;

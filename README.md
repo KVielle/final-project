@@ -1,7 +1,7 @@
 # Final Project "Shuffle"
 
-<img src = "./Client/src/Assets/HomePage.png" width = "250">
-<img src = "./Client/src/Assets/Button+Result.png" width = "300">
+<img src = "./Client/src/Assets/HomePage.png" width = "250"> <img src = "./Client/src/Assets/Button+Result.png" width = "300">
+
 
 # Summary
 

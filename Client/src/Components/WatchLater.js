@@ -113,6 +113,7 @@ const Name = styled.div`
         padding: none;
         border-radius: none;
         box-shadow:none;
+        font-size: 1em;
     }
 `
 const List = styled.div`

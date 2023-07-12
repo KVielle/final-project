@@ -1,1 +1,52 @@
-# final-project
+#Final Project "Shuffle"
+
+<img src = "./src/Assets/HomePage.png" width = "250">
+<img src = "./src/Assets/Button+Result.png" width = "300">
+
+#Summary
+
+This application functions as a random movie/tv show selector. it allows you to filter by genre and by type of media (movie or Tv show)
+and generates you a random pick to help people stop endlessly scrolling movie apps. 
+
+#Features
+
+1. Sign up 
+
+<img src = "./src/Assets/SignUp.png" width = "350">
+
+2. Sign in/ sign out
+
+<img src = "./src/Assets/SignIn.png" width = "350">
+
+3. Button that generates a random result 
+
+<img src = "./src/Assets/Button+Result.png" width = "350">
+
+4. 2 filters for said button, one for genre and one for type of media (movie or tv show)
+
+<img src = "./src/Assets/Filters.png" width = "350">
+
+5. Ability to save any movie or tv show to personal "Watch Later" list and to view said list on the profile page
+
+<img src = "./src/Assets/AddToWatchLater.png" width = "350">
+
+6. Ability to remove any movie or tv show from personal "Watch Later" list
+
+<img src = "./src/Assets/Delete.png" width = "350">
+
+7. Rating system for every item saved to watch later. Can rate them out of 5 stars
+
+<img src = "./src/Assets/Profile+WatchLater.png" >
+
+#APIs and Packages used
+
+`API`: "The Movie DataBase API" used to get database of movies and tv shows. also provides items with a rating from their website.
+
+`Packages`: 
+
+1. Styled-components
+2. UUID
+3. GlobalStyles
+4. bcrypt
+5. React-Icons
+6. React-Router-Dom

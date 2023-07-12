@@ -1,14 +1,14 @@
-#Final Project "Shuffle"
+# Final Project "Shuffle"
 
 <img src = "./Client/src/Assets/HomePage.png" width = "250">
 <img src = "./Client/src/Assets/Button+Result.png" width = "300">
 
-#Summary
+# Summary
 
 This application functions as a random movie/tv show selector. it allows you to filter by genre and by type of media (movie or Tv show)
 and generates you a random pick to help people stop endlessly scrolling movie apps. 
 
-#Features
+# Features
 
 1. Sign up 
 
@@ -38,7 +38,7 @@ and generates you a random pick to help people stop endlessly scrolling movie ap
 
 <img src = "./Client/src/Assets/Profile+WatchLater.png" >
 
-#APIs and Packages used
+# APIs and Packages used
 
 `API`: "The Movie DataBase API" used to get database of movies and tv shows. also provides items with a rating from their website.
 

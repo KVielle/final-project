@@ -148,6 +148,8 @@ const Input = styled.input`
     border-radius: 15px;
     border:none;
     box-shadow: 1px 2px 25px 2px #000000;
+    outline: none;
+    padding-left: 0.5em;
 `
 const FormGroup = styled.div`
 
@@ -176,7 +178,6 @@ const Button = styled.button`
     border-radius: 12px;
     cursor: pointer;
     display: inline-flex;
-    /* margin-top: 1em; */
     outline: none;
     padding: 1rem 1.2rem;
     transition-duration: 200ms;

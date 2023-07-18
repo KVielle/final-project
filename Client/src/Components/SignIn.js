@@ -28,7 +28,7 @@ const SignIn = () => {
         password: formData.password,
     };
     const newData = JSON.stringify(data);
-    fetch("/", {
+    fetch("https://shuffle-rq1d.onrender.com/", {
         method: "POST",
         headers: {
         Accept: "application/json",

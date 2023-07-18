@@ -6,7 +6,8 @@
         "node": ">=18"
     },
     "scripts": {
-        "start": "nodemon ./Server.js"
+        "start": "nodemon ./Server.js",
+        "build": "react-scripts build"
     },
     "dependencies": {
         "bcrypt": "^5.1.0",

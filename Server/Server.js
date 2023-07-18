@@ -9,7 +9,7 @@ const {getWatchLater} = require("./Handlers/GetWatchLater")
 const {addRating} = require("./Handlers/AddRating")
 const {getUserRating} = require("./Handlers/GetUserRating")
 const {deleteMovieFromWatchLater} = require("./Handlers/DeleteMovieFromWatchLater")
-
+const morgan = require("morgan")
 
 
 const express = require("express");

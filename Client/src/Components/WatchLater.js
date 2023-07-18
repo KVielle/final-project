@@ -15,7 +15,7 @@ const WatchLater = () => {
     useEffect(() => {
         const fetchListItems = async () => {
             try {
-            const response = await fetch(`/watchlater/${currentUser}`);
+            const response = await fetch(`https://shuffle-rq1d.onrender.com/watchlater/${currentUser}`);
             if (response.ok) {
                 const { data } = await response.json();
                 setListItems(data.listItems);

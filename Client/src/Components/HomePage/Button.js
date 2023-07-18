@@ -40,7 +40,7 @@ const Button = ({ selectedGenre }) => {
     }
 
     const handleClickTv = () => {
-        fetch(`/tv/${selectedGenre}`, {
+        fetch(`https://shuffle-rq1d.onrender.com/tv/${selectedGenre}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",

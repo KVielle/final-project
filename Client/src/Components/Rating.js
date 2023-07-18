@@ -13,7 +13,7 @@ const Rating = ({ movieId }) => {
       // Fetch the current user rating for the movie from the server
       const fetchUserRating = async () => {
         try {
-          const response = await fetch(`/getUserRating/${currentUser}/${movieId}`);
+          const response = await fetch(`https://shuffle-rq1d.onrender.com/getUserRating/${currentUser}/${movieId}`);
           if (response.ok) {
             const data = await response.json();
             setUserRating(data.userRating);
@@ -33,7 +33,7 @@ const Rating = ({ movieId }) => {
         setRating(star);
       
         try {
-          const response = await fetch(`/add-rating/${currentUser}/${movieId}`, {
+          const response = await fetch(`https://shuffle-rq1d.onrender.com/add-rating/${currentUser}/${movieId}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

@@ -50,7 +50,7 @@ const SignIn = () => {
             );
             setName(parse.data.firstName);
             setCurrentUser(parse.data.userId);
-            navigate("https://shuffle-liart.vercel.app/home");
+            navigate("/home");
         } else if (parse.status === 404){
             window.alert(JSON.stringify(parse.data));
         }

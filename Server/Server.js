@@ -20,7 +20,7 @@ const PORT = 8000;
 const app = express();
 
 app.use((req, res, next) => {
-    const allowedOrigins = ['https://shuffle-ten.vercel.app/','https://shuffle-git-main-kvielle.vercel.app/?vercelToolbarCode=hYv_fYqVT43MiW6','https://shuffle-ovjswywvz-kvielle.vercel.app/?vercelToolbarCode=LnVm4lRN8XDSIO_', 'http://localhost:8000'];
+    const allowedOrigins = ['https://shuffle-liart.vercel.app/', 'http://localhost:8000'];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);

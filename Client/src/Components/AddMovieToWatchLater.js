@@ -24,7 +24,7 @@ const AddMovieToWatchLater = ({ result, resetActive }) => {
             };
 
             
-        fetch(`${process.env.RENDER}/add-movie-to-watchlater/${currentUser}`, {
+        fetch(`https://shuffle-rq1d.onrender.com/add-movie-to-watchlater/${currentUser}`, {
             method: "PATCH",
             headers: {
             Accept: "application/json",

@@ -31,7 +31,7 @@ const Quiz = ({ selectedGenre, setSelectedGenre}) => {
     useEffect(() => {
         const fetchGenres = async () => {
             try {
-                const response = await fetch(`${process.env.RENDER}/genres`);
+                const response = await fetch(`https://shuffle-rq1d.onrender.com/genres`);
                 const parsed = await response.json();
                 setGenresList(parsed.data.genres);
             } catch (error) {

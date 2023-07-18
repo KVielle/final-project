@@ -33,7 +33,7 @@ const WatchLater = () => {
 
     const handleDelete = async (movieId) => {
         try {
-            const response = await fetch(`/watchlater/${currentUser}/delete`, {
+            const response = await fetch(`https://shuffle-rq1d.onrender.com/watchlater/${currentUser}/delete`, {
                 method: "PATCH",
                 headers: {
                 "Content-Type": "application/json",

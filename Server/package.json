@@ -7,7 +7,7 @@
     },
     "scripts": {
         "start": "nodemon ./Server.js",
-        "build": "react-scripts build"
+        "build": "react-scripts build --static-path='../Client/public/index.html'"
     },
     "dependencies": {
         "bcrypt": "^5.1.0",

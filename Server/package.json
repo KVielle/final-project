@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "license": "ISC",
     "scripts": {
-        "start": "nodemon ./Server.js"
+        "start": "nodemon ./Server.js",
+        "build": "react-scripts build"
     },
     "dependencies": {
         "bcrypt": "^5.1.0",

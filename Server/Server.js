@@ -18,6 +18,15 @@ const PORT = 8000;
 
 const app = express();
 
+app.use(function (_req, res, next) {
+    res.header("Access-Control-Allow-Origin", process.env.ALLOWED_ORIGIN);
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Content-Type, Accept, Authorization",
+    );
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+    next();
+    })
 // Server will be expecting json-formatted data.
 app.use(express.json());
 

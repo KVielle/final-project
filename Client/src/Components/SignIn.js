@@ -28,7 +28,7 @@ const SignIn = () => {
         password: formData.password,
     };
     const newData = JSON.stringify(data);
-    fetch("/signin", {
+    fetch("/", {
         method: "POST",
         headers: {
         Accept: "application/json",

@@ -13,6 +13,7 @@ const morgan = require("morgan")
 
 
 const express = require("express");
+const cors = require('cors');
 
 const PORT = 8000;
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
     app.use(morgan("tiny"))
 
     app.use(express.json())
+    app.use(cors());
 // Server will be expecting json-formatted data.
 app.use(express.json());
 

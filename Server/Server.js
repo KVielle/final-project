@@ -19,7 +19,7 @@ const PORT = 8000;
 const app = express();
 
 app.use((req, res, next) => {
-    const allowedOrigins = ['your vercellink', 'http://localhost:3000(tokeeptesting)'];
+    const allowedOrigins = ['https://shuffle-virid.vercel.app/', 'http://localhost:3000(tokeeptesting)'];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
@@ -28,8 +28,9 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', '*');
     next();
     })
-    .use(morgan("tiny"))
-    .use(express.json())
+    app.use(morgan("tiny"))
+
+    app.use(express.json())
 // Server will be expecting json-formatted data.
 app.use(express.json());
 

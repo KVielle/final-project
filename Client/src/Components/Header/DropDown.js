@@ -55,7 +55,7 @@ const DropDown = () => {
                 <Menu className = {`dropdown-menu ${open ? 'active' : 'inactive'}`}>
                     <ul>
                         <Item to = "/signup">Sign up!</Item>
-                        <Item to = "/signin">Sign in</Item>
+                        <Item to = "/">Sign in</Item>
                     </ul>
                 </Menu>
             )

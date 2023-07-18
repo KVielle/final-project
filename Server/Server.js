@@ -18,15 +18,18 @@ const PORT = 8000;
 
 const app = express();
 
-app.use(function (_req, res, next) {
-    res.header("Access-Control-Allow-Origin", process.env.ALLOWED_ORIGIN);
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Content-Type, Accept, Authorization",
-    );
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+app.use((req, res, next) => {
+    const allowedOrigins = ['your vercellink', 'http://localhost:3000(tokeeptesting)'];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', '*');
     next();
     })
+    .use(morgan("tiny"))
+    .use(express.json())
 // Server will be expecting json-formatted data.
 app.use(express.json());
 
@@ -47,7 +50,7 @@ app.patch("/add-tvshow-to-watchlater/:userId", addTvShowToWatchLater)
 app.patch("/add-rating/:userId/:movieId", addRating)
 app.patch("/watchlater/:userId/delete", deleteMovieFromWatchLater)
 
-
+app.get('/hello', (_, res) => res.send('Hello from ME'))
 
 app.get("*", (request, response) => {
     return response

@@ -665,7 +665,7 @@ node-fetch@^2.6.7:
   dependencies:
     whatwg-url "^5.0.0"
 
-node@^20.3.1:
+node@^20.4.0:
   version "20.4.0"
   resolved "https://registry.yarnpkg.com/node/-/node-20.4.0.tgz#e0e4f4833d4b5d4e80cc182f3762218681038ea6"
   integrity sha512-IN51SKeIAacjLGF02d3ehNRhF9Z4I96LyAidAhN1GqNBOLXK1dcaYRs4AwClydv6Nl96soFRc3VlNaHCK4k+lQ==

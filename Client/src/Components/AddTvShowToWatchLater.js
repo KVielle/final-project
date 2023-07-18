@@ -24,7 +24,7 @@ const AddTvShowToWatchLater = ({ result, resetActive }) => {
             };
 
             
-        fetch(`https://shuffle-rq1d.onrender.com/add-tvshow-to-watchlater/${currentUser}`, {
+        fetch(`${process.env.RENDER}/add-tvshow-to-watchlater/${currentUser}`, {
             method: "PATCH",
             headers: {
             Accept: "application/json",

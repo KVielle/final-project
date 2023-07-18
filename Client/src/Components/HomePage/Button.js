@@ -23,7 +23,7 @@ const Button = ({ selectedGenre }) => {
     };
 
     const handleClickMovies = () => {
-        fetch(`https://shuffle-rq1d.onrender.com/movies/${selectedGenre}`, {
+        fetch(`${process.env.RENDER}/movies/${selectedGenre}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -40,7 +40,7 @@ const Button = ({ selectedGenre }) => {
     }
 
     const handleClickTv = () => {
-        fetch(`https://shuffle-rq1d.onrender.com/tv/${selectedGenre}`, {
+        fetch(`${process.env.RENDER}/tv/${selectedGenre}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",

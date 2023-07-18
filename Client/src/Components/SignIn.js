@@ -28,7 +28,7 @@ const SignIn = () => {
         password: formData.password,
     };
     const newData = JSON.stringify(data);
-    fetch("https://shuffle-rq1d.onrender.com/", {
+    fetch(`${process.env.RENDER}/`, {
         method: "POST",
         headers: {
         Accept: "application/json",
@@ -50,7 +50,7 @@ const SignIn = () => {
             );
             setName(parse.data.firstName);
             setCurrentUser(parse.data.userId);
-            navigate("https://shuffle-rq1d.onrender.com/home");
+            navigate(`${process.env.RENDER}/home`);
         } else if (parse.status === 404){
             window.alert(JSON.stringify(parse.data));
         }

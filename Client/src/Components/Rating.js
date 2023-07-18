@@ -33,7 +33,7 @@ const Rating = ({ movieId }) => {
         setRating(star);
       
         try {
-          const response = await fetch(`https://shuffle-rq1d.onrender.com/add-rating/${currentUser}/${movieId}`, {
+          const response = await fetch(`${process.env.RENDER}/add-rating/${currentUser}/${movieId}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

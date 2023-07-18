@@ -25,7 +25,7 @@ const SignUp = () => {
         password: formData.password,
     };
     const newData = JSON.stringify(data);
-    fetch("https://shuffle-rq1d.onrender.com/signup", {
+    fetch(`${process.env.RENDER}/signup`, {
         method: "POST",
         headers: {
         Accept: "application/json",
